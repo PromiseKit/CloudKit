@@ -30,7 +30,7 @@ class Test_CKContainer_Swift: XCTestCase {
             init(_: Bool = false)
             {}
 
-            private override func requestApplicationPermission(_ applicationPermission: CKApplicationPermissions, completionHandler: CKApplicationPermissionBlock) {
+            private override func requestApplicationPermission(_ applicationPermission: CKApplicationPermissions, completionHandler: @escaping CKApplicationPermissionBlock) {
                 completionHandler(.granted, nil)
             }
         }
@@ -49,7 +49,7 @@ class Test_CKContainer_Swift: XCTestCase {
             init(_: Bool = false)
             {}
 
-            private override func status(forApplicationPermission applicationPermission: CKApplicationPermissions, completionHandler: CKApplicationPermissionBlock) {
+            private override func status(forApplicationPermission applicationPermission: CKApplicationPermissions, completionHandler: @escaping CKApplicationPermissionBlock) {
                 completionHandler(.granted, nil)
             }
         }
