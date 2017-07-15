@@ -1,29 +1,30 @@
 language: objective-c
-osx_image: xcode8
-
+osx_image: xcode8.3
+matrix:
+  include:
+    - osx_image: xcode8
+    - osx_image: xcode8.1
+    - osx_image: xcode8.2
+    - osx_image: xcode9
 env:
   - PLATFORM=Mac
   - PLATFORM=iOS NAME='iPhone SE'
   - PLATFORM=tvOS NAME='Apple TV 1080p'
   - PLATFORM=watchOS
-
 before_install:
   - if [ -n "$NAME" ]; then
       export UUID=$(instruments -s | ruby -e "ARGF.each_line{ |ln| ln =~ /$NAME .* \[(.*)\]/; if \$1; puts(\$1); exit; end }");
     fi
-
 install:
   - carthage bootstrap --platform $PLATFORM
-
 script:
   - set -o pipefail;
     case $PLATFORM in
     Mac)
-      xcodebuild -scheme PMKCloudKit test | xcpretty;;
+      xcodebuild -quiet -scheme PMKCloudKit test | xcpretty;;
     iOS|tvOS)
-      xcrun instruments -w "$UUID" || true;
-      sleep 15;
-      xcodebuild -scheme PMKCloudKit -destination "id=$UUID" test | xcpretty;;
+      open -a "simulator" --args -CurrentDeviceUDID "$UUID";
+      xcodebuild -quiet -scheme PMKCloudKit -destination "id=$UUID" test | xcpretty;;
     watchOS)
-      xcodebuild -scheme PMKCloudKit -destination "name=Apple Watch - 38mm" | xcpretty;;
+      xcodebuild -quiet -scheme PMKCloudKit -destination "name=Apple Watch - 38mm" | xcpretty;;
     esac

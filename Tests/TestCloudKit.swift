@@ -12,7 +12,7 @@ class Test_CKContainer_Swift: XCTestCase {
             init(_: Bool = false)
             {}
 
-            private override func accountStatus(completionHandler: @escaping (CKAccountStatus, Error?) -> Void) {
+            override func accountStatus(completionHandler: @escaping (CKAccountStatus, Error?) -> Void) {
                 completionHandler(.couldNotDetermine, nil)
             }
         }
@@ -30,7 +30,7 @@ class Test_CKContainer_Swift: XCTestCase {
             init(_: Bool = false)
             {}
 
-            private override func requestApplicationPermission(_ applicationPermission: CKApplicationPermissions, completionHandler: @escaping CKApplicationPermissionBlock) {
+            override func requestApplicationPermission(_ applicationPermission: CKApplicationPermissions, completionHandler: @escaping CKApplicationPermissionBlock) {
                 completionHandler(.granted, nil)
             }
         }
@@ -49,7 +49,7 @@ class Test_CKContainer_Swift: XCTestCase {
             init(_: Bool = false)
             {}
 
-            private override func status(forApplicationPermission applicationPermission: CKApplicationPermissions, completionHandler: @escaping CKApplicationPermissionBlock) {
+            override func status(forApplicationPermission applicationPermission: CKApplicationPermissions, completionHandler: @escaping CKApplicationPermissionBlock) {
                 completionHandler(.granted, nil)
             }
         }
@@ -68,7 +68,7 @@ class Test_CKContainer_Swift: XCTestCase {
             init(_: Bool = false)
             {}
 
-            private override func discoverAllContactUserInfos(completionHandler: @escaping ([CKDiscoveredUserInfo]?, Error?) -> Void) {
+            override func discoverAllContactUserInfos(completionHandler: @escaping ([CKDiscoveredUserInfo]?, Error?) -> Void) {
                 completionHandler([PMKDiscoveredUserInfo()], nil)
             }
         }
@@ -86,7 +86,7 @@ class Test_CKContainer_Swift: XCTestCase {
             init(_: Bool = false)
             {}
 
-            private override func discoverUserInfo(withEmailAddress email: String, completionHandler: @escaping (CKDiscoveredUserInfo?, Error?) -> Void) {
+            override func discoverUserInfo(withEmailAddress email: String, completionHandler: @escaping (CKDiscoveredUserInfo?, Error?) -> Void) {
                 completionHandler(PMKDiscoveredUserInfo(), nil)
             }
         }
@@ -103,7 +103,7 @@ class Test_CKContainer_Swift: XCTestCase {
             init(_: Bool = false)
             {}
 
-            private override func discoverUserInfo(withUserRecordID userRecordID: CKRecordID, completionHandler: @escaping (CKDiscoveredUserInfo?, Error?) -> Void) {
+            override func discoverUserInfo(withUserRecordID userRecordID: CKRecordID, completionHandler: @escaping (CKDiscoveredUserInfo?, Error?) -> Void) {
                 completionHandler(PMKDiscoveredUserInfo(), nil)
             }
         }
@@ -120,7 +120,7 @@ class Test_CKContainer_Swift: XCTestCase {
             init(_: Bool = false)
             {}
 
-            private override func fetchUserRecordID(completionHandler: @escaping (CKRecordID?, Error?) -> Void) {
+            override func fetchUserRecordID(completionHandler: @escaping (CKRecordID?, Error?) -> Void) {
                 completionHandler(dummy(), nil)
             }
         }
