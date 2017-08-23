@@ -1,5 +1,4 @@
 import PMKCloudKit
-
 import XCTest
 
 //TODO possibly we should interpret eg. request permission result of Denied as error
