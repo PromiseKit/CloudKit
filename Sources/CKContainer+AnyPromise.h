@@ -49,7 +49,11 @@
 
  @return A promise that thens the array of `CKDiscoveredUserInfo` objects.
 */
+#if TARGET_OS_WATCH
+- (AnyPromise *)discoverAllIdentities NS_REFINED_FOR_SWIFT;
+#else
 - (AnyPromise *)discoverAllContactUserInfos NS_REFINED_FOR_SWIFT;
+#endif
 #endif
 
 /**
