@@ -5,7 +5,7 @@ This project adds promises to Apple’s CloudKit framework.
 ## CococaPods
 
 ```ruby
-pod "PromiseKit/CloudKit" ~> 4.0
+pod "PromiseKit/CloudKit" ~> 6.0
 ```
 
 The extensions are built into `PromiseKit.framework` thus nothing else is needed.
@@ -13,7 +13,7 @@ The extensions are built into `PromiseKit.framework` thus nothing else is needed
 ## Carthage
 
 ```ruby
-github "PromiseKit/CloudKit" ~> 1.0
+github "PromiseKit/CloudKit" ~> 3.0
 ```
 
 The extensions are built into their own framework:
