@@ -1,2 +1,2 @@
-@class CKDiscoveredUserInfo;
-extern CKDiscoveredUserInfo *PMKDiscoveredUserInfo();
+@class CKUserIdentity;
+extern CKUserIdentity *PMKDiscoveredUserInfo();

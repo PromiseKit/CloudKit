@@ -1,5 +1,5 @@
 @import CloudKit;
 
-CKDiscoveredUserInfo *PMKDiscoveredUserInfo() {
-    return [CKDiscoveredUserInfo new];
+CKUserIdentity *PMKDiscoveredUserInfo() {
+    return [CKUserIdentity alloc];
 }

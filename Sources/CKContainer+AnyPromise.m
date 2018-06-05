@@ -39,7 +39,7 @@
 #else
 - (AnyPromise *)discoverAllContactUserInfos {
     return [AnyPromise promiseWithResolverBlock:^(PMKResolver resolve) {
-        [self discoverAllContactUserInfosWithCompletionHandler:^(NSArray *userInfos, NSError *error) {
+        [self discoverAllIdentitiesWithCompletionHandler:^(NSArray *userInfos, NSError *error) {
             resolve(error ?: userInfos);
         }];
     }];
@@ -53,17 +53,9 @@
             resolve(error ?: error);
         };
         if ([input isKindOfClass:[CKRecordID class]]) {
-            #if !TARGET_OS_WATCH
-            [self discoverUserInfoWithUserRecordID:input completionHandler:adapter];
-            #else
             [self discoverUserIdentityWithUserRecordID:input completionHandler:adapter];
-            #endif
         } else {
-            #if !TARGET_OS_WATCH
-            [self discoverUserInfoWithEmailAddress:input completionHandler:adapter];
-            #else
             [self discoverUserIdentityWithEmailAddress:input completionHandler:adapter];
-            #endif
         }
     }];
 }

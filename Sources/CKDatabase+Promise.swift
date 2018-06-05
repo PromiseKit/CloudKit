@@ -3,6 +3,13 @@ import CloudKit.CKDatabase
 import PromiseKit
 #endif
 
+#if swift(>=4.2)
+#else
+public extension CKRecordZone {
+    typealias ID = CKRecordZoneID
+}
+#endif
+
 /**
  To import the `CKDatabase` category:
 
@@ -15,12 +22,12 @@ import PromiseKit
 */
 extension CKDatabase {
     /// Fetches one record asynchronously from the current database.
-    public func fetch(withRecordID recordID: CKRecordID) -> Promise<CKRecord> {
+    public func fetch(withRecordID recordID: CKRecord.ID) -> Promise<CKRecord> {
         return Promise { fetch(withRecordID: recordID, completionHandler: $0.resolve) }
     }
 
     /// Fetches one record zone asynchronously from the current database.
-    public func fetch(withRecordZoneID recordZoneID: CKRecordZoneID) -> Promise<CKRecordZone> {
+    public func fetch(withRecordZoneID recordZoneID: CKRecordZone.ID) -> Promise<CKRecordZone> {
         return Promise { fetch(withRecordZoneID: recordZoneID, completionHandler: $0.resolve) }
     }
     /// Fetches all record zones asynchronously from the current database.
@@ -39,17 +46,17 @@ extension CKDatabase {
     }
 
     /// Delete one subscription object asynchronously from the current database.
-    public func delete(withRecordID recordID: CKRecordID) -> Promise<CKRecordID> {
+    public func delete(withRecordID recordID: CKRecord.ID) -> Promise<CKRecord.ID> {
         return Promise { delete(withRecordID: recordID, completionHandler: $0.resolve) }
     }
 
     /// Delete one subscription object asynchronously from the current database.
-    public func delete(withRecordZoneID zoneID: CKRecordZoneID) -> Promise<CKRecordZoneID> {
+    public func delete(withRecordZoneID zoneID: CKRecordZone.ID) -> Promise<CKRecordZone.ID> {
         return Promise { delete(withRecordZoneID: zoneID, completionHandler: $0.resolve) }
     }
 
     /// Searches the specified zone asynchronously for records that match the query parameters.
-    public func perform(_ query: CKQuery, inZoneWith zoneID: CKRecordZoneID? = nil) -> Promise<[CKRecord]> {
+    public func perform(_ query: CKQuery, inZoneWith zoneID: CKRecordZone.ID? = nil) -> Promise<[CKRecord]> {
         return Promise { perform(query, inZoneWith: zoneID, completionHandler: $0.resolve) }
     }
 
