@@ -11,17 +11,24 @@ matrix:
     - {osx_image: xcode9.2,   env: 'PLAT=iOS      SWFT=3.2  DST="OS=11.2,name=iPhone SE"'}
     - {osx_image: xcode9.2,   env: 'PLAT=tvOS     SWFT=3.2  DST="OS=11.2,name=Apple TV"'}
     - {osx_image: xcode9.2,   env: 'PLAT=watchOS  SWFT=3.2  DST="OS=4.2,name=Apple Watch - 38mm"'}
-                                                            
+
+    - {osx_image: xcode9.3,   env: 'PLAT=macOS    SWFT=3.3  DST="arch=x86_64"'}
+    - {osx_image: xcode9.3,   env: 'PLAT=iOS      SWFT=3.3  DST="OS=11.3,name=iPhone SE"'}
+    - {osx_image: xcode9.3,   env: 'PLAT=tvOS     SWFT=3.3  DST="OS=11.3,name=Apple TV"'}
+    - {osx_image: xcode9.3,   env: 'PLAT=watchOS  SWFT=3.3  DST="OS=4.3,name=Apple Watch - 38mm"'}
+
     - {osx_image: xcode9.2,   env: 'PLAT=macOS    SWFT=4.0  DST="arch=x86_64"'}
-    - {osx_image: xcode9.2,   env: 'PLAT=iOS      SWFT=4.0  DST="OS=8.4,name=iPhone 4s"'}
-    - {osx_image: xcode9.2,   env: 'PLAT=iOS      SWFT=4.0  DST="OS=9.3,name=iPhone SE"'}
-    - {osx_image: xcode9.2,   env: 'PLAT=iOS      SWFT=4.0  DST="OS=10.3.1,name=iPhone SE"'}
     - {osx_image: xcode9.2,   env: 'PLAT=iOS      SWFT=4.0  DST="OS=11.2,name=iPhone SE"'}
-    - {osx_image: xcode9.2,   env: 'PLAT=tvOS     SWFT=4.0  DST="OS=9.2,name=Apple TV 1080p"'}
-    - {osx_image: xcode9.2,   env: 'PLAT=tvOS     SWFT=4.0  DST="OS=10.2,name=Apple TV 1080p"'}
     - {osx_image: xcode9.2,   env: 'PLAT=tvOS     SWFT=4.0  DST="OS=11.2,name=Apple TV"'}
-    - {osx_image: xcode9.2,   env: 'PLAT=watchOS  SWFT=4.0  DST="OS=3.2,name=Apple Watch - 38mm"'}
     - {osx_image: xcode9.2,   env: 'PLAT=watchOS  SWFT=4.0  DST="OS=4.2,name=Apple Watch - 38mm"'}
+                                                            
+    - {osx_image: xcode9.3,  env: 'PLAT=macOS    SWFT=4.1  DST="arch=x86_64"'}
+    - {osx_image: xcode9.3,  env: 'PLAT=iOS      SWFT=4.1  DST="OS=10.3.1,name=iPhone SE"'}
+    - {osx_image: xcode9.3,  env: 'PLAT=iOS      SWFT=4.1  DST="OS=11.2,name=iPhone SE"'}
+    - {osx_image: xcode9.3,  env: 'PLAT=tvOS     SWFT=4.1  DST="OS=10.2,name=Apple TV 1080p"'}
+    - {osx_image: xcode9.3,  env: 'PLAT=tvOS     SWFT=4.1  DST="OS=11.2,name=Apple TV"'}
+    - {osx_image: xcode9.3,  env: 'PLAT=watchOS  SWFT=4.1  DST="OS=3.2,name=Apple Watch - 38mm"'}
+    - {osx_image: xcode9.3,  env: 'PLAT=watchOS  SWFT=4.1  DST="OS=4.2,name=Apple Watch - 38mm"'}
 cache:
   directories:
   - Carthage
