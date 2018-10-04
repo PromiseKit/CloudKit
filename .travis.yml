@@ -43,7 +43,12 @@ cache:
   directories:
   - Carthage
 before_install:
-  - carthage bootstrap --cache-builds --no-use-binaries --platform $PLAT --verbose
+  - carthage bootstrap -m-cache-builds --no-use-binaries --platform $PLAT --verbose
+  - if [[ $PLAT == macOS ]]; then
+      cd Carthage/Checkouts/PromiseKit;
+      mv .github/PromiseKit.podspec .;
+      gem install cocoapods --prerelease --version 1.6.0.beta.1;
+    fi
 install:
   - xcodebuild -scheme PMKCloudKit -target PMKCloudKit -quiet -destination "$DST" SWIFT_VERSION=$SWFT SWIFT_TREAT_WARNINGS_AS_ERRORS=YES build
   - if [[ $TEST == "1" ]]; then
@@ -52,4 +57,8 @@ install:
 script:
   - if [[ "$TEST" == "1" ]]; then
       xcodebuild -scheme PMKCloudKit -quiet -destination "$DST" test;
+    fi
+  - if [[ $PLAT == macOS ]]; then
+      cd Carthage/Checkouts/PromiseKit;
+      pod lib lint --subspec=PromiseKit/CloudKit --fail-fast --skip-tests --swift-version=$SWFT;
     fi
