@@ -48,7 +48,9 @@ before_install:
       cd Carthage/Checkouts/PromiseKit;
       mv .github/PromiseKit.podspec .;
       gem install cocoapods --prerelease --version 1.6.0.beta.1;
+      cd ..;
     fi
+  # cd .. because (LOL) these are not separate, independently instantiated scripts
 install:
   - xcodebuild -scheme PMKCloudKit -target PMKCloudKit -quiet -destination "$DST" SWIFT_VERSION=$SWFT SWIFT_TREAT_WARNINGS_AS_ERRORS=YES build
   - if [[ $TEST == "1" ]]; then
