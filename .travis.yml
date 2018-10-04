@@ -43,7 +43,7 @@ cache:
   directories:
   - Carthage
 before_install:
-  - carthage bootstrap -m-cache-builds --no-use-binaries --platform $PLAT --verbose
+  - carthage bootstrap --cache-builds --no-use-binaries --platform $PLAT --verbose
   - if [[ $PLAT == macOS ]]; then
       cd Carthage/Checkouts/PromiseKit;
       mv .github/PromiseKit.podspec .;
