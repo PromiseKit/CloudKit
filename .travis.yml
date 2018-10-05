@@ -62,6 +62,6 @@ script:
       cd Carthage/Checkouts/PromiseKit;
       mv .github/PromiseKit.podspec .;
       rm -rf Extensions/CloudKit/Sources;
-      cp -R ../../Sources .;
+      cp -R ../../Sources Extensions/CloudKit/Sources;
       pod lib lint --subspec=PromiseKit/CloudKit --fail-fast --swift-version=$SWFT;
     fi
