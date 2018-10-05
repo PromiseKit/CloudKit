@@ -48,7 +48,7 @@ before_install:
       pushd Carthage/Checkouts/PromiseKit;
       mv .github/PromiseKit.podspec .;
       gem install cocoapods --prerelease --version 1.6.0.beta.1;
-      popd
+      popd;
     fi
   # cd .. because (LOL) these are not separate, independently instantiated scripts
 install:
