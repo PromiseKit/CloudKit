@@ -73,7 +73,7 @@ jobs:
       before_install:
         carthage bootstrap --cache-builds --no-use-binaries --platform $PLAT
       install:
-        xcodebuild -scheme PMKCloudKit -target PMKCloudKit -quiet -destination "$DST" SWIFT_VERSION=$SWFT SWIFT_TREAT_WARNINGS_AS_ERRORS=YES build
+        xcodebuild -scheme PMKCloudKit -target PMKCloudKit -quiet -destination "$DST" SWIFT_TREAT_WARNINGS_AS_ERRORS=YES build
       script:
         xcodebuild -scheme PMKCloudKit -quiet -destination "$DST" test
     - <<: *test
