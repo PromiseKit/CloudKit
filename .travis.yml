@@ -56,6 +56,9 @@ jobs:
       language: objective-c
       script:
         carthage bootstrap --platform watchOS
+      cache:
+        directories:
+        - Carthage
 
     - &test
       stage: test
