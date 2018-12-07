@@ -64,17 +64,17 @@ jobs:
     - &swiftpm
       stage: swiftpm
       osx_image: xcode10.1
-      name: swift build (swift-4.2)
+      name: swift build (tools-version-4.2)
       os: osx
       language: objective-c
       script: swift build -Xswiftc -target -Xswiftc x86_64-apple-macosx10.12
     - <<: *swiftpm
-      osx_image: xcode9.4
-      name: swift build (swift-4.1)
-    - <<: *swiftpm
       osx_image: xcode9.2
-      name: swift build (swift-4.0)
-      
+      name: swift build (tools-version-4.0)
+    - <<: *swiftpm
+      osx_image: xcode8.3
+      name: swift build (tools-version-vanilla)
+
     - &test
       stage: test
       osx_image: xcode10.1
