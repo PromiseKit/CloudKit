@@ -2,10 +2,10 @@
 
 This project adds promises to Apple’s CloudKit framework.
 
-## CococaPods
+## CocoaPods
 
 ```ruby
-pod "PromiseKit/CloudKit" ~> 6.0
+pod "PromiseKit/CloudKit", ~> 6.0
 ```
 
 The extensions are built into `PromiseKit.framework` thus nothing else is needed.
