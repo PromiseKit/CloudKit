@@ -1,5 +1,5 @@
 branches:
-  only: 
+  only:
     - master
 stages:
   - lint
@@ -16,7 +16,7 @@ jobs:
       os: osx
       language: objective-c
       before_install:
-        gem install cocoapods --prerelease --version 1.6.0.beta.1
+        gem install cocoapods --prerelease --version 1.7.0.beta.2
       install:
         carthage bootstrap --no-build PromiseKit
       script: |
@@ -49,9 +49,13 @@ jobs:
       osx_image: xcode10.1
       env: SWIFT=4.2
       name: pod lib lint --swift-version=4.2
+    - <<: *pod
+      osx_image: xcode10.2
+      env: SWIFT=5.0
+      name: pod lib lint --swift-version=5.0
 
     - stage: carthage
-      osx_image: xcode10.1
+      osx_image: xcode10.2
       name: Carthage / watchOS
       os: osx
       language: objective-c
@@ -60,14 +64,17 @@ jobs:
       cache:
         directories:
         - Carthage
-    
+
     - &swiftpm
       stage: swiftpm
-      osx_image: xcode10.1
-      name: swift build (tools-version-4.2)
+      osx_image: xcode10.2
+      name: swift build (tools-version-5.0)
       os: osx
       language: objective-c
       script: swift build -Xswiftc -target -Xswiftc x86_64-apple-macosx10.12
+    - <<: *swiftpm
+      osx_image: xcode10.1
+      name: swift build (tools-version-4.2)
     - <<: *swiftpm
       osx_image: xcode9.2
       name: swift build (tools-version-4.0)
@@ -77,7 +84,7 @@ jobs:
 
     - &test
       stage: test
-      osx_image: xcode10.1
+      osx_image: xcode10.2
       name: macOS Tests
       env: DST='arch=x86_64' PLAT=macOS
       os: osx
@@ -92,8 +99,8 @@ jobs:
       script:
         xcodebuild -scheme PMKCloudKit -quiet -destination "$DST" test
     - <<: *test
-      env: DST='OS=12.0,name=iPhone SE' PLAT=iOS
+      env: DST='OS=12.2,name=iPhone SE' PLAT=iOS
       name: iOS Tests
     - <<: *test
-      env: DST='OS=12.0,name=Apple TV' PLAT=tvOS
+      env: DST='OS=12.2,name=Apple TV' PLAT=tvOS
       name: tvOS Tests
