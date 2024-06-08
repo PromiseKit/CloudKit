@@ -29,12 +29,12 @@ extension CKContainer {
     }
 
     /// Requests the specified permission from the user asynchronously.
-    public func requestApplicationPermission(_ applicationPermissions: CKContainer_Application_Permissions) -> Promise<CKContainer_Application_PermissionStatus> {
+    public func requestApplicationPermission(_ applicationPermissions: CKContainer.ApplicationPermissions) -> Promise<CKContainer.ApplicationPermissionStatus> {
         return Promise { requestApplicationPermission(applicationPermissions, completionHandler: $0.resolve) }
     }
 
     /// Checks the status of the specified permission asynchronously.
-    public func status(forApplicationPermission applicationPermissions: CKContainer_Application_Permissions) -> Promise<CKContainer_Application_PermissionStatus> {
+    public func status(forApplicationPermission applicationPermissions: CKContainer.ApplicationPermissions) -> Promise<CKContainer.ApplicationPermissionStatus> {
         return Promise { status(forApplicationPermission: applicationPermissions, completionHandler: $0.resolve) }
     }
 
