@@ -9,7 +9,7 @@ pkg.products = [
 ]
 pkg.swiftLanguageVersions = [.v3, .v4, .v4_2]
 pkg.dependencies = [
-	.package(url: "https://github.com/mxcl/PromiseKit.git", from: "6.0.0")
+	.package(url: "https://github.com/mxcl/PromiseKit.git", from: "8.1.2")
 ]
 
 let target: Target = .target(name: name)
